@@ -1,0 +1,14 @@
+{
+	"header": {
+		"home": "Home",
+		"portfolio": "Portfolio",
+		"about": "About",
+		"contact": "Contact"
+	},
+	"home": {
+		"information": "Info",
+		"interest": "Interest",
+		"experience": "Exp",
+		"technology": "Tech"
+	}
+}
