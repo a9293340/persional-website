@@ -18,7 +18,6 @@ declare module '@vue/runtime-core' {
     ICifUs: typeof import('~icons/cif/us')['default']
     'IIconamoon:closeBold': typeof import('~icons/iconamoon/close-bold')['default']
     'IIconamoon:menuBurgerHorizontalBold': typeof import('~icons/iconamoon/menu-burger-horizontal-bold')['default']
-    'IMdi:language': typeof import('~icons/mdi/language')['default']
     IMdiLanguage: typeof import('~icons/mdi/language')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
