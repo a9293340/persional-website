@@ -46,9 +46,9 @@ class Home {
 
   async change(type) {
     this.#scene.remove(this.#eg);
+
     this.#eg = null;
     this.#eg = await createEyeGroup(type);
-    this.#loop.updatables.push(this.#eg);
     this.#scene.add(this.#eg);
   }
 
