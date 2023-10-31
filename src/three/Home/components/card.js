@@ -34,8 +34,8 @@ const createCard = (envMap) => {
 	model.scale.set(1, 1, 1);
 
 	const radiansPerSecond = MathUtils.degToRad(30);
-	model.tick = () => {
-		model.rotation.y += radiansPerSecond * 0.02;
+	model.tick = (delta) => {
+		model.rotation.y += radiansPerSecond * delta * 2;
 	};
 
 	return model;

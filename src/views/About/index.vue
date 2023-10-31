@@ -2,13 +2,25 @@
 import { SelfIntro } from "@/three/SelfIntroduction/SelfIntro.js";
 import { useComponentStore } from "@/stores/useComponent";
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 
 let selfIntro = null;
 
 const { i18nFontFamily } = storeToRefs(useComponentStore());
+const router = useRouter();
+
+router.afterEach(async (to, from) => {
+	if (to.fullPath === "/about") await initThree();
+});
+
 const pick = ref("information");
 
 const initThree = async () => {
+	if (selfIntro) {
+		selfIntro.stop();
+		selfIntro = null;
+	}
+
 	const container = document.querySelector("#self-introduction");
 	selfIntro = new SelfIntro(container);
 

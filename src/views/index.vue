@@ -8,7 +8,7 @@ const { i18nFontFamily } = storeToRefs(useComponentStore());
 const router = useRouter();
 
 router.afterEach(async (to, from) => {
-	if (to.fullPath === "/portfolio") await initThree();
+	if (to.fullPath === "/") await initThree();
 });
 
 let home = null;
