@@ -27,15 +27,9 @@ const createCard = (envMap) => {
 	const geometry = new BoxGeometry(0.1, 11, 7.5);
 	const m1 = createMaterial(texture);
 	const m2 = createMaterial(textureBack);
+	const mb = new MeshStandardMaterial({ color: new Color(0, 0, 0) });
 
-	const model = new Mesh(geometry, [
-		m1,
-		m2,
-		new MeshStandardMaterial({ color: new Color(0, 0, 0) }),
-		new MeshStandardMaterial({ color: new Color(0, 0, 0) }),
-		new MeshStandardMaterial({ color: new Color(0, 0, 0) }),
-		new MeshStandardMaterial({ color: new Color(0, 0, 0) }),
-	]);
+	const model = new Mesh(geometry, [m1, m2, mb, mb, mb, mb]);
 	model.position.set(0, 0, -15);
 	model.scale.set(1, 1, 1);
 
