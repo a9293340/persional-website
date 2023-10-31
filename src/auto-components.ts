@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     I18nSetting: typeof import('./components/Header/I18nSetting.vue')['default']
     ICifTw: typeof import('~icons/cif/tw')['default']
     ICifUs: typeof import('~icons/cif/us')['default']
+    'IGameIcons:click': typeof import('~icons/game-icons/click')['default']
     'IIconamoon:closeBold': typeof import('~icons/iconamoon/close-bold')['default']
     'IIconamoon:menuBurgerHorizontalBold': typeof import('~icons/iconamoon/menu-burger-horizontal-bold')['default']
     IMdiLanguage: typeof import('~icons/mdi/language')['default']

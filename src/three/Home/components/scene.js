@@ -1,27 +1,27 @@
-import { Scene, CubeTextureLoader, Fog } from "three";
+import { Scene, CubeTextureLoader, FogExp2, Color } from 'three';
 
-function createScene(bg) {
-	const scene = new Scene();
+function createScene() {
+  const scene = new Scene();
 
-	scene.background = bg;
-	scene.fog = new Fog(0x1a1a1a, 1, 1000);
+  scene.background = new Color(0x1a1a1a);
+  scene.fog = new FogExp2(0x000000, 0.005);
 
-	return scene;
+  return scene;
 }
 
 function createCubeTexture() {
-	const loader = new CubeTextureLoader();
-	loader.setPath("/textures/Brigde/");
-	const textureCube = loader.load([
-		"posx.jpg",
-		"negx.jpg",
-		"posy.jpg",
-		"negy.jpg",
-		"posz.jpg",
-		"negz.jpg",
-	]);
+  const loader = new CubeTextureLoader();
+  loader.setPath('/textures/Brigde/');
+  const textureCube = loader.load([
+    'posx.jpg',
+    'negx.jpg',
+    'posy.jpg',
+    'negy.jpg',
+    'posz.jpg',
+    'negz.jpg',
+  ]);
 
-	return textureCube;
+  return textureCube;
 }
 
 export { createScene, createCubeTexture };
