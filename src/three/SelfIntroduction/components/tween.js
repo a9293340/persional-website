@@ -34,7 +34,24 @@ const createTween = (camera, fillLight) => {
 	lightTween4.chain(lightTween);
 	lightTween.start();
 
-	return { tween, lightTween };
+	return { tween };
 };
 
-export { createTween };
+const createCameraTween = (camera) => {
+	const cameraTween = new TWEEN.Tween(camera.position)
+		.to(
+			window.innerWidth >= 1200 ? { x: 0, y: 3, z: 8 } : { x: 0, y: 1, z: 8 },
+			4500
+		)
+		.easing(TWEEN.Easing.Quadratic.InOut);
+
+	const cameraBackTween = new TWEEN.Tween(camera.position)
+		.to(
+			window.innerWidth >= 1200 ? { x: 4, y: 3, z: 15 } : { x: 0, y: 3, z: 15 },
+			4500
+		)
+		.easing(TWEEN.Easing.Quadratic.InOut);
+	return { cameraTween, cameraBackTween };
+};
+
+export { createTween, createCameraTween };

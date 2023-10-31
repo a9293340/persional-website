@@ -1,5 +1,16 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { MathUtils } from "three";
+import {
+	MathUtils,
+	AnimationClip,
+	VectorKeyframeTrack,
+	AnimationMixer,
+} from "three";
+
+const positionKF = new VectorKeyframeTrack(
+	".position",
+	[0, 0.67, 0.85, 1],
+	[...[0, 0, 0], ...[-1, 0.3, -0.5], ...[1, -0.3, 0.5], ...[0, 0, 0]]
+);
 
 const createMillennium = async () => {
 	const loader = new GLTFLoader();
@@ -10,8 +21,22 @@ const createMillennium = async () => {
 	model.rotation.z = -MathUtils.degToRad(30);
 
 	const radiansPerSecond = MathUtils.degToRad(30);
+
+	const moveBlinkClip = new AnimationClip("move-n-blink", -1, [positionKF]);
+	const mixer = new AnimationMixer(model);
+	const action = mixer.clipAction(moveBlinkClip);
+
 	model.tick = (delta) => {
 		model.rotation.z += radiansPerSecond * delta;
+		mixer.update(delta);
+	};
+
+	model.shake = () => {
+		action.play();
+	};
+
+	model.stop = () => {
+		action.stop();
 	};
 
 	return model;

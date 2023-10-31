@@ -41,7 +41,7 @@ const { locale } = useI18n();
 
 <style lang="scss" scoped>
 .setting {
-	@apply mt-2;
+	@apply mt-2 xl:mt-4;
 }
 .item {
 	@apply mb-2 text-3xl text-emerald-400 font-extralight italic cursor-pointer hover:scale-125 duration-300 origin-center;

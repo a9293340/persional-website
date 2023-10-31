@@ -15,7 +15,7 @@ class SelfIntro {
 	#renderer;
 	#loop;
 	#tween;
-	#controls;
+	#millennium;
 	#lights;
 
 	constructor(container) {
@@ -51,17 +51,28 @@ class SelfIntro {
 	}
 
 	async init() {
-		const millennium = await createMillennium();
-		this.#loop.updatables.push(millennium);
-		this.#scene.add(millennium);
+		this.#millennium = await createMillennium();
+		this.#loop.updatables.push(this.#millennium);
+		this.#scene.add(this.#millennium);
 	}
 
 	setLight() {
 		this.#scene.add(this.#lights.purpleLight);
 	}
 
+	moveCamera() {
+		// this.reset();
+		this.#camera.moveTo();
+	}
+
+	shakeMillennium() {
+		this.#millennium.shake();
+	}
+
 	reset() {
 		this.#scene.remove(this.#lights.purpleLight);
+		this.#camera.moveBack();
+		this.#millennium.stop();
 	}
 }
 

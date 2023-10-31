@@ -1,4 +1,5 @@
 import { PerspectiveCamera } from "three";
+import { createCameraTween } from "./tween";
 
 function createCamera() {
 	const camera = new PerspectiveCamera(
@@ -10,9 +11,17 @@ function createCamera() {
 	// move the camera back so we can view the scene
 	camera.position.set(-30, 50, 120);
 
-	camera.tick = () => {
-		// camera.position.z -= 0.05;
-		// if (camera.position.z < 10) camera.position.z = 40;
+	camera.tick = () => {};
+
+	camera.moveTo = () => {
+		const { cameraTween } = createCameraTween(camera);
+		cameraTween.start();
+		cameraTween.update();
+	};
+	camera.moveBack = () => {
+		const { cameraBackTween } = createCameraTween(camera);
+		cameraBackTween.start();
+		cameraBackTween.update();
 	};
 	return camera;
 }
