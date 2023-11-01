@@ -11,6 +11,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
+import vercel from "vite-plugin-vercel";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -44,6 +45,7 @@ export default defineConfig({
 		}),
 		ElementPlus({}),
 		Icons({ autoInstall: true }),
+		vercel(),
 	],
 	resolve: {
 		alias: {
