@@ -21,11 +21,6 @@ const routes = [
 		component: Portfolio,
 	},
 	{
-		path: "/contact",
-		name: "contact",
-		component: Contact,
-	},
-	{
 		path: "/:catchAll(.*)",
 		redirect: "/",
 	},
