@@ -8,7 +8,13 @@ import { Sphere, Body, Vec3, Material } from "cannon-es";
 
 const createBall = (radius, position) => {
 	const loader = new TextureLoader();
-	const map = loader.load("/image/Dark_Magician_Girl_29.webp");
+	const ram = Math.random();
+	const map =
+		ram < 0.33
+			? loader.load("/image/Aroma.png")
+			: ram > 0.66
+			? loader.load("/image/Apollousa.webp")
+			: loader.load("/image/buy-in.webp");
 	const sphereGeometry = new SphereGeometry(1, 24, 24);
 	const sphereMaterial = new MeshStandardMaterial({
 		metalness: 0.4,

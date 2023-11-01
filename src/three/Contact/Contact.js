@@ -7,6 +7,7 @@ import { createLights } from "./components/lights.js";
 import { createFloor } from "./components/floor.js";
 import { createPhysicalWorld } from "./physical/world.js";
 import { createBall } from "./components/ball.js";
+import { createBox } from "./components/box.js";
 
 class Contact {
 	#camera;
@@ -42,21 +43,27 @@ class Contact {
 		this.#loop.stop();
 	}
 
-	create() {
-		let ball = createBall(Math.random() * 0.8, {
-			x: (Math.random() - 0.5) * 3,
-			y: 3,
-			z: (Math.random() - 0.5) * 3,
-		});
-
-		ball.tick = (scene) => {
-			ball.mesh.position.copy(ball.body.position);
-			ball.mesh.quaternion.copy(ball.body.quaternion);
+	create(type) {
+		let obj = type
+			? createBall(Math.random() * 0.8, {
+					x: (Math.random() - 0.5) * 3,
+					y: 3,
+					z: (Math.random() - 0.5) * 3,
+			  })
+			: createBox(Math.random(), Math.random(), Math.random(), {
+					x: (Math.random() - 0.5) * 3,
+					y: 3,
+					z: (Math.random() - 0.5) * 3,
+			  });
+		obj.mesh.name = type ? "ball" : "box";
+		obj.tick = () => {
+			obj.mesh.position.copy(obj.body.position);
+			obj.mesh.quaternion.copy(obj.body.quaternion);
 		};
 
-		this.#scene.add(ball.mesh);
-		this.#world.addBody(ball.body);
-		this.#loop.updatables.push(ball);
+		this.#scene.add(obj.mesh);
+		this.#world.addBody(obj.body);
+		this.#loop.updatables.push(obj);
 	}
 
 	init() {}

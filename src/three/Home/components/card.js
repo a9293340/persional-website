@@ -9,7 +9,7 @@ import {
 
 const createCard = (envMap) => {
 	const textureLoader = new TextureLoader();
-	const texture = textureLoader.load("/image/Dark_Magician_Girl_29.webp");
+	const texture = textureLoader.load("/image/blue-eyes.png");
 	const textureBack = textureLoader.load(
 		"/image/71874e05c6cce6d6effe02a1627829e3.png"
 	);

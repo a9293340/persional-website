@@ -23,7 +23,8 @@ const initThree = async () => {
 	contact = await init("#contact", contact, Contact);
 
 	timeItv = setInterval(() => {
-		contact.create();
+		const ram = Math.random() >= 0.5 ? 1 : 0;
+		contact.create(ram);
 	}, 500);
 };
 
