@@ -30,8 +30,8 @@ const createCard = (envMap) => {
 	const mb = new MeshStandardMaterial({ color: new Color(0, 0, 0) });
 
 	const model = new Mesh(geometry, [m1, m2, mb, mb, mb, mb]);
-	model.position.set(0, 0, -15);
-	model.scale.set(1, 1, 1);
+	model.position.set(0, 0, -40);
+	model.scale.set(0.1, 0.1, 0.1);
 
 	const radiansPerSecond = MathUtils.degToRad(30);
 	model.tick = (delta) => {

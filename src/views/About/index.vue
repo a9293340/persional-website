@@ -3,6 +3,7 @@ import { SelfIntro } from "@/three/SelfIntroduction/SelfIntro.js";
 import { useComponentStore } from "@/stores/useComponent";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
+import { init } from "@/assets/utils/init";
 
 let selfIntro = null;
 
@@ -16,16 +17,7 @@ router.afterEach(async (to, from) => {
 const pick = ref("information");
 
 const initThree = async () => {
-	if (selfIntro) {
-		selfIntro.stop();
-		selfIntro = null;
-	}
-
-	const container = document.querySelector("#self-introduction");
-	selfIntro = new SelfIntro(container);
-
-	selfIntro.start();
-	await selfIntro.init();
+	selfIntro = await init("#self-introduction", selfIntro, SelfIntro);
 };
 
 const pickInfo = (type) => {

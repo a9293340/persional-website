@@ -3,6 +3,7 @@ import { Portfolio } from "@/three/Portfolio/Portfolio.js";
 import { useComponentStore } from "@/stores/useComponent";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
+import { init } from "@/assets/utils/init";
 
 const { i18nFontFamily } = storeToRefs(useComponentStore());
 const router = useRouter();
@@ -14,15 +15,7 @@ router.afterEach(async (to, from) => {
 let portfolio = null;
 
 const initThree = async () => {
-	if (portfolio) {
-		portfolio.stop();
-		portfolio = null;
-	}
-	const container = document.querySelector("#portfolio");
-	if (container) {
-		portfolio = new Portfolio(container);
-		portfolio.start();
-	}
+	portfolio = await init("#portfolio", portfolio, Portfolio);
 };
 
 onMounted(async () => {

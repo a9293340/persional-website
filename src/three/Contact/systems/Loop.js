@@ -1,5 +1,4 @@
 import { Clock } from "three";
-import TWEEN from "three/examples/jsm/libs/tween.module";
 
 const clock = new Clock();
 
@@ -14,7 +13,10 @@ class Loop {
 	start() {
 		this.renderer.setAnimationLoop(() => {
 			this.tick();
-			TWEEN.update();
+			for (let i = 0; i < this.scene.children.length; i++) {
+				const child = this.scene.children[i];
+				if (child.position.z <= -10) this.scene.remove(child);
+			}
 			// render a frame
 			this.renderer.render(this.scene, this.camera);
 		});

@@ -15,7 +15,7 @@ const createTween = (card) => {
 
 	if (window.innerWidth >= 1200) {
 		const tween4 = new TWEEN.Tween(card.position)
-			.to({ x: 15, y: 2, z: 35 }, 2000)
+			.to({ x: 30, y: 2, z: 35 }, 2000)
 			.easing(TWEEN.Easing.Quadratic.InOut);
 
 		tween.chain(tween4);
