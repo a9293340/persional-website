@@ -2,7 +2,7 @@ import TWEEN from "three/examples/jsm/libs/tween.module";
 
 const createTween = (card) => {
 	const tween = new TWEEN.Tween(card.position)
-		.to({ x: 0, y: 2, z: 35 }, 8000)
+		.to({ x: 0, y: -2, z: 35 }, 8000)
 		.easing(TWEEN.Easing.Quadratic.InOut);
 
 	const tween2 = new TWEEN.Tween(card.scale)

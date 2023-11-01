@@ -6,6 +6,7 @@ import { useRouter } from "vue-router";
 import { init } from "@/assets/utils/init";
 
 let selfIntro = null;
+const page = ref(0);
 
 const { i18nFontFamily } = storeToRefs(useComponentStore());
 const router = useRouter();
@@ -25,15 +26,19 @@ const pickInfo = (type) => {
 	switch (type) {
 		case "information":
 			selfIntro.reset();
+			page.value = 0;
 			break;
 		case "interest":
 			selfIntro.setLight();
+			page.value = 1;
 			break;
 		case "experience":
 			selfIntro.moveCamera();
+			page.value = 2;
 			break;
 		case "technology":
 			selfIntro.shakeMillennium();
+			page.value = 3;
 			break;
 	}
 };
@@ -56,7 +61,7 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('information')"
 				>
-					{{ $t("home.information") }}
+					{{ $t("about.information") }}
 				</div>
 				<div
 					:class="[
@@ -66,7 +71,7 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('interest')"
 				>
-					{{ $t("home.interest") }}
+					{{ $t("about.interest") }}
 				</div>
 				<div
 					:class="[
@@ -76,7 +81,7 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('experience')"
 				>
-					{{ $t("home.experience") }}
+					{{ $t("about.experience") }}
 				</div>
 				<div
 					:class="[
@@ -86,10 +91,12 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('technology')"
 				>
-					{{ $t("home.technology") }}
+					{{ $t("about.technology") }}
 				</div>
 			</div>
-			<div class="content"></div>
+			<div class="content">
+				<AboutContent v-model:page="page" />
+			</div>
 		</div>
 		<div class="introduction-mobile">
 			<div class="list">
@@ -101,17 +108,7 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('information')"
 				>
-					{{ $t("home.information") }}
-				</div>
-				<div
-					:class="[
-						'header-words',
-						i18nFontFamily,
-						{ pick: pick === 'technology' },
-					]"
-					@click="pickInfo('technology')"
-				>
-					{{ $t("home.technology") }}
+					{{ $t("about.information") }}
 				</div>
 				<div
 					:class="[
@@ -121,7 +118,7 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('interest')"
 				>
-					{{ $t("home.interest") }}
+					{{ $t("about.interest") }}
 				</div>
 				<div
 					:class="[
@@ -131,10 +128,22 @@ onMounted(async () => {
 					]"
 					@click="pickInfo('experience')"
 				>
-					{{ $t("home.experience") }}
+					{{ $t("about.experience") }}
+				</div>
+				<div
+					:class="[
+						'header-words',
+						i18nFontFamily,
+						{ pick: pick === 'technology' },
+					]"
+					@click="pickInfo('technology')"
+				>
+					{{ $t("about.technology") }}
 				</div>
 			</div>
-			<div class="content"></div>
+			<div class="content">
+				<AboutContent v-model:page="page" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -174,7 +183,7 @@ onMounted(async () => {
 			}
 		}
 		.content {
-			@apply w-11/12 h-11/12 mt-12;
+			@apply w-11/12 h-1/2 mt-52;
 		}
 	}
 	.introduction {
@@ -192,7 +201,7 @@ onMounted(async () => {
 			}
 		}
 		.content {
-			@apply w-11/12 h-full p-6;
+			@apply w-11/12 h-full p-8 pl-12;
 		}
 	}
 }

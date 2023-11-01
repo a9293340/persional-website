@@ -5,10 +5,26 @@
 		"about": "About",
 		"contact": "Contact"
 	},
-	"home": {
+	"about": {
 		"information": "Info.",
 		"interest": "hob.",
 		"experience": "Exp.",
-		"technology": "Tech."
+		"technology": "Tech.",
+		"sex": "Sex",
+		"setContent": "Male",
+		"birthday": "Birthday",
+		"birthdayContent": "1990-03-27",
+		"abode": "Abode",
+		"abodeContent": "New Taipei City / Banqiao",
+		"military": "Military Service",
+		"militaryContent": "Discharged"
+	},
+	"copyright": {
+		"desc": "Copyright © 2023 Eric Hong. All rights reserved."
+	},
+	"home": {
+		"slogan1": "While there is life",
+		"slogan2": "there is hope.",
+		"source": "- The Theory of Everything -"
 	}
 }

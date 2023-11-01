@@ -1,10 +1,13 @@
 <script setup>
 import { useI18n } from "vue-i18n";
+import { useComponentStore } from "@/stores/useComponent";
+import { storeToRefs } from "pinia";
 const { locale } = useI18n();
+const { i18nFontFamily } = storeToRefs(useComponentStore());
 </script>
 
 <template>
-	<div class="item setting">
+	<div :class="['item', 'setting', i18nFontFamily]">
 		<el-dropdown
 			trigger="click"
 			:show-timeout="0"
@@ -41,9 +44,12 @@ const { locale } = useI18n();
 
 <style lang="scss" scoped>
 .setting {
-	@apply mt-2 xl:mt-4;
+	@apply mt-2;
 }
 .item {
 	@apply mb-2 text-3xl text-emerald-400 font-extralight italic cursor-pointer hover:scale-125 duration-300 origin-center;
+}
+.en {
+	@apply xl:mt-4;
 }
 </style>

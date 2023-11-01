@@ -1,7 +1,11 @@
 <script setup></script>
 
 <template>
-	<div></div>
+	<div class="footer">{{ $t("copyright.desc") }}</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.footer {
+	@apply fixed left-1/2 bottom-6 xl:bottom-11 -translate-x-1/2 text-sm xl:text-xl whitespace-nowrap text-cyan-500;
+}
+</style>

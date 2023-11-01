@@ -5,10 +5,26 @@
 		"about": "關於我",
 		"contact": "聯絡方式"
 	},
-	"home": {
+	"about": {
 		"information": "資訊",
 		"interest": "興趣",
 		"experience": "經驗",
-		"technology": "技術"
+		"technology": "技術",
+		"sex": "性別",
+		"setContent": "男性",
+		"birthday": "生日",
+		"birthdayContent": "079/03/27",
+		"abode": "居住地",
+		"abodeContent": "新北/板橋",
+		"military": "兵役狀況",
+		"militaryContent": "役畢"
+	},
+	"copyright": {
+		"desc": "版權所有 © 2023 洪雋倫"
+	},
+	"home": {
+		"slogan1": "生活的目標",
+		"slogan2": "是唯一值得尋找的財富",
+		"source": "- 史蒂.文森 -"
 	}
 }
