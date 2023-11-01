@@ -33,7 +33,9 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div class="contact"><div id="contact"></div></div>
+	<div class="contact">
+		<div id="contact"></div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
