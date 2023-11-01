@@ -1,30 +1,59 @@
 {
-	"header": {
-		"home": "首頁",
-		"portfolio": "作品集",
-		"about": "關於我",
-		"contact": "聯絡方式"
-	},
-	"about": {
-		"information": "資訊",
-		"interest": "興趣",
-		"experience": "經驗",
-		"technology": "技術",
-		"sex": "性別",
-		"setContent": "男性",
-		"birthday": "生日",
-		"birthdayContent": "079/03/27",
-		"abode": "居住地",
-		"abodeContent": "新北/板橋",
-		"military": "兵役狀況",
-		"militaryContent": "役畢"
-	},
-	"copyright": {
-		"desc": "版權所有 © 2023 洪雋倫"
-	},
-	"home": {
-		"slogan1": "生活的目標",
-		"slogan2": "是唯一值得尋找的財富",
-		"source": "- 史蒂.文森 -"
-	}
+  "header": {
+    "home": "首頁",
+    "portfolio": "作品集",
+    "about": "關於我",
+    "contact": "聯絡方式"
+  },
+  "about": {
+    "information": "資訊",
+    "interest": "興趣",
+    "experience": "經驗",
+    "technology": "技術",
+    "sex": "性別",
+    "setContent": "男性",
+    "birthday": "生日",
+    "birthdayContent": "079/03/27",
+    "abode": "居住地",
+    "abodeContent": "新北/板橋",
+    "military": "兵役狀況",
+    "militaryContent": "役畢",
+    "work": "工作狀態",
+    "workContent": "在職中(全職)",
+    "hob1": "◆ 羽球",
+    "hob2": "◆ 騎單車",
+    "hob3": "◆ 卡牌遊戲",
+    "hob4": "◆ 電影",
+    "hob5": "◆ 旅行",
+    "exp1": "■ 國立中央大學 地球科學系 (2010/09 - 2014/07)",
+    "exp2": "■ 國立中央大學 應用地質研究所 (2014/09 - 2016/07)",
+    "exp3": "■ 瑞昶科技(股) 環境工程師 (2017/03 - 2018/02)",
+    "exp4": "■ 業興環境(股) 專案經理 (2018/04 - 2020/01)",
+    "exp5": "■ 資策會 前端班 (2020/01-2020/07)",
+    "exp6": "■ 偉斯(股) 前端工程師 (2020/08-2022/01)",
+    "exp7": "■ 偉斯(股) 全端工程師 (2022/01-now)",
+    "techTitle1": " 主要技術",
+    "main1": "-HTML / CSS / Javascript",
+    "main2": "-Vue2 / Vue3",
+    "main3": "-Vite",
+    "main4": "-Nuxt3",
+    "main5": "-Node.js Express",
+    "main6": "-Non-SQL (MongoDB)",
+    "main7": "-Three.js",
+    "techTitle2": " 目前精進技能",
+    "improve1": "-無障礙網頁",
+    "improve2": "-使用者體驗",
+    "improve3": "-React",
+    "improve4": "-Docker",
+    "improve5": "-Typescript",
+    "improve6": "-SQL"
+  },
+  "copyright": {
+    "desc": "版權所有 © 2023 洪雋倫"
+  },
+  "home": {
+    "slogan1": "生活的目標",
+    "slogan2": "是唯一值得尋找的財富",
+    "source": "- 史蒂.文森 -"
+  }
 }

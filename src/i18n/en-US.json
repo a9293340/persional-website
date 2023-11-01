@@ -1,30 +1,59 @@
 {
-	"header": {
-		"home": "Home",
-		"portfolio": "Portfolio",
-		"about": "About",
-		"contact": "Contact"
-	},
-	"about": {
-		"information": "Info.",
-		"interest": "hob.",
-		"experience": "Exp.",
-		"technology": "Tech.",
-		"sex": "Sex",
-		"setContent": "Male",
-		"birthday": "Birthday",
-		"birthdayContent": "1990-03-27",
-		"abode": "Abode",
-		"abodeContent": "New Taipei City / Banqiao",
-		"military": "Military Service",
-		"militaryContent": "Discharged"
-	},
-	"copyright": {
-		"desc": "Copyright © 2023 Eric Hong. All rights reserved."
-	},
-	"home": {
-		"slogan1": "While there is life",
-		"slogan2": "there is hope.",
-		"source": "- The Theory of Everything -"
-	}
+  "header": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "about": {
+    "information": "Info.",
+    "interest": "hob.",
+    "experience": "Exp.",
+    "technology": "Tech.",
+    "sex": "Sex",
+    "setContent": "Male",
+    "birthday": "Birthday",
+    "birthdayContent": "1990-03-27",
+    "abode": "Abode",
+    "abodeContent": "New Taipei City / Banqiao",
+    "military": "Military Service",
+    "militaryContent": "Discharged",
+    "work": "Working Status",
+    "workContent": "◆ On the job (Full time)",
+    "hob1": "◆ Badminton",
+    "hob2": "◆ Cycling",
+    "hob3": "◆ Trading Card Game",
+    "hob4": "◆ Movie",
+    "hob5": "◆ Traveling",
+    "exp1": "■ NCU Earth Science (2010/09 - 2014/07)",
+    "exp2": "■ NCU Applied Geology (2014/09 - 2016/07)",
+    "exp3": "■ Apollo Tech. Environmental Engineer (2017/03 - 2018/02)",
+    "exp4": "■ Sinotech Env.  Project Manager (2018/04 - 2020/01)",
+    "exp5": "■ III Front-End Class (2020/01-2020/07)",
+    "exp6": "■ Cino Group Front-End Developer (2020/08-2022/01)",
+    "exp7": "■ Cino Group Full-Stack Engineer (2022/01-now)",
+    "techTitle1": " Main",
+    "main1": "-HTML / CSS / Javascript",
+    "main2": "-Vue2 / Vue3",
+    "main3": "-Vite",
+    "main4": "-Nuxt3",
+    "main5": "-Node.js Express",
+    "main6": "-Non-SQL (MongoDB)",
+    "main7": "-Three.js",
+    "techTitle2": " Improvement",
+    "improve1": "-About Web Accessibility",
+    "improve2": "-User Experience",
+    "improve3": "-React",
+    "improve4": "-Docker",
+    "improve5": "-Typescript",
+    "improve6": "-SQL"
+  },
+  "copyright": {
+    "desc": "Copyright © 2023 Eric Hong. All rights reserved."
+  },
+  "home": {
+    "slogan1": "While there is life",
+    "slogan2": "there is hope.",
+    "source": "- The Theory of Everything -"
+  }
 }

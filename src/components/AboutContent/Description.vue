@@ -1,37 +1,57 @@
 <script setup>
-import { useComponentStore } from "@/stores/useComponent";
-import { storeToRefs } from "pinia";
+import { useComponentStore } from '@/stores/useComponent';
+import { storeToRefs } from 'pinia';
 
 const { i18nFontFamily } = storeToRefs(useComponentStore());
 
 const props = defineProps({
-	title: {
-		type: String,
-		default: "",
-	},
-	content: {
-		type: String,
-		default: "",
-	},
+  title: {
+    type: String,
+    default: '',
+  },
+  content: {
+    type: String,
+    default: '',
+  },
+  mark: {
+    type: Boolean,
+    default: true,
+  },
+  small: {
+    type: Boolean,
+    default: false,
+  },
+  mb: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
 <template>
-	<div class="list">
-		<p :class="[`${i18nFontFamily}-title`]">{{ props.title }}</p>
-		<p>:</p>
-		<p :class="[`${i18nFontFamily}-content`, 'content']">{{ props.content }}</p>
-	</div>
+  <div :class="['list', { mb: props.small }]">
+    <p :class="[`${i18nFontFamily}-title`, { small: props.small }]">{{ props.title }}</p>
+    <p v-if="props.mark">:</p>
+    <p :class="[`${i18nFontFamily}-content`, 'content', { small: props.small }]">
+      {{ props.content }}
+    </p>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .list {
-	@apply flex flex-row items-center mb-4 w-full;
-	p {
-		@apply mr-3 text-blue-400;
-	}
-	p.content {
-		@apply text-blue-600;
-	}
+  @apply flex flex-row items-center mb-4 w-full;
+  p {
+    @apply mr-3 text-blue-400 text-xl xl:text-3xl;
+  }
+  p.content {
+    @apply text-blue-600;
+  }
+  p.small {
+    @apply text-base xl:text-xl;
+  }
+}
+.mb {
+  @apply mb-2;
 }
 </style>
