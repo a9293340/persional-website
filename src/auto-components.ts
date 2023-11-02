@@ -8,7 +8,13 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AboutContent: typeof import('./components/AboutContent/index.vue')['default']
+    Carousel: typeof import('./components/PortfolioComponent/Carousel.vue')['default']
+    CarouselExample: typeof import('./components/CarouselExample/index.vue')['default']
+    'CarouselExample.vue': typeof import('./components/CarouselExample.vue/index.vue')['default']
+    CarouselPortfolio: typeof import('./components/PortfolioComponent/CarouselPortfolio.vue')['default']
     Description: typeof import('./components/AboutContent/Description.vue')['default']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']

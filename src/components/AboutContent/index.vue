@@ -145,9 +145,6 @@ const props = defineProps({
 <style lang="scss" scoped>
 .about-content {
 	@apply w-full h-2/3 whitespace-nowrap overflow-hidden;
-	.main-content {
-		@apply w-full h-full inline-block  box-border duration-700 xl:pl-16 xl:pt-6 align-middle overflow-auto scrollbar-none;
-	}
 	.inline-box {
 		@apply inline-block align-top mr-4 xl:mr-12;
 	}

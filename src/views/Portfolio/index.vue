@@ -25,6 +25,7 @@ onMounted(async () => {
 
 <template>
 	<div class="portfolio">
+		<carousel-portfolio />
 		<div id="portfolio"></div>
 	</div>
 </template>
@@ -32,6 +33,12 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .portfolio,
 #portfolio {
-	@apply w-full h-full cursor-move;
+	@apply w-full h-full;
+}
+#portfolio {
+	@apply cursor-move;
+}
+.portfolio {
+	@apply relative;
 }
 </style>
