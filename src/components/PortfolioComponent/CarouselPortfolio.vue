@@ -23,9 +23,11 @@ const cssPlus = ref([
 const changeRight = (type) => {
 	const dom = document.querySelector(".card-box");
 	const cards = document.querySelectorAll(".card");
-	let jud = (idx.value % 6) + 1;
+	let jud = (idx.value % 6) + type;
+	if (jud < 1) jud = 6;
 	const tranZ = window.innerWidth < 1200 ? -1200 : -700;
 	for (let i = 0; i < cards.length; i++) {
+		console.log(jud - 1);
 		cards[jud - 1].style.transform =
 			cssRule.value[`index${jud}`] + " " + cssPlus.value[i];
 		if (window.innerWidth >= 1200) {
@@ -34,23 +36,28 @@ const changeRight = (type) => {
 		} else {
 			cards[jud - 1].style.transform += "translateZ(1200px)";
 		}
-		jud++;
+		jud += type;
 		if (jud > 6) jud = 1;
 		if (jud < 1) jud = 6;
 	}
-	dom.style.transform = `translateZ(${tranZ}px) rotateY(-${
-		60 * idx.value
-	}deg) `;
+	dom.style.transform =
+		type > 0
+			? `translateZ(${tranZ}px) rotateY(-${
+					60 * idx.value >= 360 ? 60 * idx.value - 360 : 60 * idx.value
+			  }deg) `
+			: `translateZ(${tranZ}px) rotateY(${
+					60 * idx.value >= 360 ? 60 * idx.value - 360 : 60 * idx.value
+			  }deg) `;
 	idx.value++;
 };
 
 onMounted(() => {
-	changeRight(-1);
+	changeRight(1);
 });
 </script>
 <template>
 	<div class="carousel-portfolio">
-		<div class="card-box" @click="changeRight(1)">
+		<div class="card-box" @click="changeRight(-1)">
 			<div class="card">
 				<p class="text-4xl text-white">test1</p>
 			</div>
