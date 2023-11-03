@@ -22,7 +22,7 @@ class Portfolio {
 		this.#renderer = createRenderer();
 		this.#sprite = createBubbles(40, true, 1, true, 0xffffff).bubbles;
 		const { light1, light2, light3, light4 } = createLights();
-		if (window.innerWidth >= 1200) {
+		if (window.innerWidth >= 1024) {
 			this.#controls = createControls(this.#camera, this.#renderer.domElement);
 		}
 		this.#loop = new Loop(this.#camera, this.#scene, this.#renderer);

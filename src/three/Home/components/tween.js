@@ -13,7 +13,7 @@ const createTween = (card) => {
 		.to({ x: 0, y: Math.PI * 8, z: Math.PI / 16 }, 8000)
 		.easing(TWEEN.Easing.Quadratic.InOut);
 
-	if (window.innerWidth >= 1200) {
+	if (window.innerWidth >= 1024) {
 		const tween4 = new TWEEN.Tween(card.position)
 			.to({ x: 30, y: 2, z: 35 }, 2000)
 			.easing(TWEEN.Easing.Quadratic.InOut);

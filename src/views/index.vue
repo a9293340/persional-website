@@ -106,7 +106,7 @@ onMounted(async () => {
 #home {
 	@apply w-full h-full;
 	.slogan {
-		@apply xl:block hidden -left-2/3 top-1/3 text-5xl fixed text-lime-300 duration-1000;
+		@apply lg:block hidden -left-2/3 top-1/3 text-5xl fixed text-lime-300 duration-1000;
 	}
 	.slogan-move {
 		top: 44%;
@@ -139,7 +139,7 @@ onMounted(async () => {
 	}
 
 	.slogan-mobile {
-		@apply -left-3/4 xl:hidden duration-1000 top-32 fixed text-2xl text-lime-300;
+		@apply -left-3/4 lg:hidden duration-1000 top-32 fixed text-2xl text-lime-300;
 	}
 
 	.slogan-move-mobile {

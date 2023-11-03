@@ -13,6 +13,7 @@ router.afterEach(async (to, from) => {
 });
 
 let portfolio = null;
+const cardList = ref(["a", "b", "c", "d", "e"]);
 
 const initThree = async () => {
 	portfolio = await init("#portfolio", portfolio, Portfolio);
@@ -25,7 +26,17 @@ onMounted(async () => {
 
 <template>
 	<div class="portfolio">
-		<carousel-portfolio />
+		<carousel-portfolio
+			:lens="cardList.length"
+			:transXStart="-550"
+			:rwdCheck="1024"
+		>
+			<template v-for="(item, i) in cardList" :key="i" v-slot:[`content${i}`]>
+				<div class="slot-test">
+					<p class="text-4xl text-white">test{{ item }}</p>
+				</div>
+			</template>
+		</carousel-portfolio>
 		<div id="portfolio"></div>
 	</div>
 </template>
@@ -40,5 +51,8 @@ onMounted(async () => {
 }
 .portfolio {
 	@apply relative;
+}
+.slot-test {
+	@apply w-full h-full flex justify-center items-center;
 }
 </style>

@@ -50,6 +50,6 @@ const { i18nFontFamily } = storeToRefs(useComponentStore());
 	@apply mb-2 text-3xl text-emerald-400 font-extralight italic cursor-pointer hover:scale-125 duration-300 origin-center;
 }
 .en {
-	@apply xl:mt-4;
+	@apply lg:mt-4;
 }
 </style>

@@ -14,7 +14,7 @@ const positionKF = new VectorKeyframeTrack(
 
 const createMillennium = async () => {
 	const loader = new GLTFLoader();
-	const ratio = window.innerWidth >= 1200 ? 0.03 : 0.02;
+	const ratio = window.innerWidth >= 1024 ? 0.03 : 0.02;
 	const target = await loader.loadAsync("/models/millennium.glb");
 	const model = target.scene.children[0];
 	model.scale.set(ratio, ratio, ratio);

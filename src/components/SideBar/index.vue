@@ -86,7 +86,7 @@ watch(
 
 <style lang="scss" scoped>
 .side-bar {
-	@apply xl:hidden flex fixed h-screen w-full top-0 -left-full z-50 duration-700 ease-in-out;
+	@apply lg:hidden flex fixed h-screen w-full top-0 -left-full z-50 duration-700 ease-in-out;
 	.blur-img {
 		@apply w-full h-full flex flex-col justify-center items-center backdrop-blur-lg;
 		.item {

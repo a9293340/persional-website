@@ -12,7 +12,7 @@ function createCamera(winWidth) {
 	camera.lookAt(new Vector3(0, 0, 0));
 
 	camera.tick = (delta) => {
-		if (window.innerWidth < 1200) {
+		if (window.innerWidth < 1024) {
 			camera.rotation.y += (Math.PI / 20) * delta;
 			camera.rotation.x += (Math.PI / 20) * delta;
 		}

@@ -104,12 +104,12 @@ watch(
 
 <style lang="scss" scoped>
 .header {
-	@apply fixed w-10/12 h-16 left-1/2 xl:top-8 top-4 -translate-x-1/2  xl:z-50 z-100000;
+	@apply fixed w-10/12 h-16 left-1/2 lg:top-8 top-4 -translate-x-1/2  lg:z-50 z-100000;
 	.header-mobile {
-		@apply xl:hidden flex flex-row justify-between w-full h-full items-center;
+		@apply lg:hidden flex flex-row justify-between w-full h-full items-center;
 	}
 	.header-xl {
-		@apply w-full h-full hidden xl:flex justify-center items-center;
+		@apply w-full h-full hidden lg:flex justify-center items-center;
 		.item {
 			@apply mr-16 text-3xl text-emerald-400 font-extralight italic cursor-pointer hover:scale-125 duration-300 origin-center;
 		}

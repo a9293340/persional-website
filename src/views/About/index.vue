@@ -159,7 +159,7 @@ onMounted(async () => {
 .self-introduction {
 	@apply relative;
 	.introduction-mobile {
-		@apply xl:hidden flex flex-row-reverse w-full h-3/4 pl-2 bg-slate-200 bg-opacity-20 backdrop-blur-sm left-1/2 -translate-x-1/2 top-32 z-50 fixed;
+		@apply lg:hidden flex flex-row-reverse w-full h-3/4 pl-2 bg-slate-200 bg-opacity-20 backdrop-blur-sm left-1/2 -translate-x-1/2 top-32 z-50 fixed;
 		.list {
 			@apply flex flex-col fixed left-4 top-2;
 			.header-words {
@@ -187,12 +187,12 @@ onMounted(async () => {
 		.content {
 			@apply w-11/12 h-3/5 mt-10;
 			img {
-				@apply xl:w-60 w-48 mb-6 ml-28 xl:ml-20;
+				@apply lg:w-60 w-48 mb-6 ml-28 lg:ml-20;
 			}
 		}
 	}
 	.introduction {
-		@apply fixed h-2/3 z-50 m-10 xl:flex flex-row hidden;
+		@apply fixed h-2/3 z-50 m-10 lg:flex flex-row hidden;
 		width: 54%;
 		left: 6%;
 		top: 25%;
@@ -208,7 +208,7 @@ onMounted(async () => {
 		.content {
 			@apply w-11/12 h-full p-8 pl-12;
 			img {
-				@apply xl:w-60 w-48 mb-8 ml-24 xl:ml-20;
+				@apply lg:w-60 w-48 mb-8 ml-24 lg:ml-20;
 			}
 		}
 	}
