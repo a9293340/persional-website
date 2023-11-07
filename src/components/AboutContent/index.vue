@@ -19,6 +19,7 @@ const props = defineProps({
 				},
 			]"
 		>
+			<Description :title="$t('about.name')" :mark="false" />
 			<Description :title="$t('about.sex')" :content="$t('about.setContent')" />
 			<Description
 				:title="$t('about.birthday')"
