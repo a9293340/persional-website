@@ -2,9 +2,8 @@ import { MathUtils, TextureLoader, Mesh, MeshStandardMaterial, BoxGeometry, Colo
 
 const createCard = envMap => {
   const textureLoader = new TextureLoader();
-  const texture = textureLoader.load('/public/image/me/3260842-B20231106.jpg');
+  const texture = textureLoader.load('/image/me/3260842-B20231106.jpg');
   const textureBack = textureLoader.load('/image/card-back.png');
-
   const createMaterial = texture =>
     new MeshStandardMaterial({
       map: texture,
