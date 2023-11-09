@@ -37,7 +37,7 @@ const linkTo = () => {
 </script>
 
 <template>
-  <div class="mobile-image" v-if="mobileTrigger">
+  <div class="mobile-image" v-if="mobileTrigger && props.images.length">
     <div class="carousel-rotation">
       <div class="icon">
         <el-icon :size="20" color="blue" @click="linkTo">
@@ -53,7 +53,7 @@ const linkTo = () => {
   </div>
   <div class="portfolio-content-mobile">
     <div :class="['title', i18nFontFamily, `title-${i18nFontFamily}`]">{{ props.title }}</div>
-    <div class="h-2/5">
+    <div class="h-2/5" v-if="props.images.length">
       <el-carousel width="100%" height="auto" :interval="5000" @click="linkTo">
         <el-carousel-item v-for="item in props.images" :key="item" style="height: auto">
           <img :src="item" alt="" />
@@ -130,13 +130,13 @@ const linkTo = () => {
             class="cursor-pointer hover:text-blue-800 duration-150"
             target="_blank"
           >
-            <p class="w-60">* {{ item.title }} (Click me)</p>
+            <p class="w-full">* {{ item.title }} (Click me)</p>
           </a>
         </div>
       </div>
     </div>
     <div class="portfolio-detail-box">
-      <div class="h-3/5">
+      <div v-if="props.images.length">
         <el-carousel width="100%" height="auto" :interval="5000">
           <el-carousel-item v-for="item in props.images" :key="item" style="height: auto">
             <img :src="item" alt="" />
@@ -191,11 +191,11 @@ const linkTo = () => {
   .portfolio-detail-box {
     @apply w-full lg:w-7/12 h-1/2  lg:h-full;
     .detail-zone {
-      @apply w-full h-2/5 flex flex-row justify-between mt-10;
+      @apply w-full h-2/5 flex flex-row justify-between mt-16;
       .content {
         @apply flex flex-col w-[calc(50%-15px)];
         .slogan {
-          @apply lg:text-3xl text-sky-900 mb-8;
+          @apply lg:text-3xl text-sky-900 mb-4;
         }
         .slogan-content {
           @apply text-lg mb-3 w-full flex flex-row;
