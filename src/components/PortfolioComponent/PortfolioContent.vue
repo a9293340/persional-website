@@ -66,15 +66,7 @@ const linkTo = () => {
 				</el-carousel-item>
 			</el-carousel>
 		</div>
-		<div
-			:class="[
-				'content-zone',
-				{
-					'h-full': !props.images.length,
-					'h-short': props.images.lengths,
-				},
-			]"
-		>
+		<div :class="['content-zone']">
 			<div class="content">
 				<div :class="['slogan', i18nFontFamily]">
 					{{ $t("portfolio.slogan4") }}
@@ -255,18 +247,19 @@ const linkTo = () => {
 	}
 }
 .portfolio-content-mobile {
-	@apply w-full h-full flex lg:hidden flex-col m-4 mt-10;
+	@apply w-full h-full flex lg:hidden flex-col overflow-y-scroll overflow-x-hidden;
+	-webkit-overflow-scrolling: touch;
 	.title {
-		@apply text-lg text-gray-800 mb-8;
+		@apply text-lg text-gray-800 mb-4;
 	}
 	.title-zh {
 		@apply lg:text-3xl;
 	}
 	.content-zone {
-		@apply w-full overflow-y-scroll overflow-x-hidden;
-		-webkit-overflow-scrolling: touch;
+		@apply w-full h-auto;
 		.content {
 			@apply flex flex-col w-full mb-4;
+			min-height: 30px;
 			.slogan {
 				@apply text-lg text-sky-900 mb-4;
 			}
