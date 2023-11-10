@@ -250,7 +250,7 @@ const linkTo = () => {
 	@apply w-full h-full flex lg:hidden flex-col overflow-y-scroll overflow-x-hidden;
 	-webkit-overflow-scrolling: touch;
 	.title {
-		@apply text-lg text-gray-800 mb-4;
+		@apply text-lg text-gray-800 mb-4 flex flex-row justify-center;
 	}
 	.title-zh {
 		@apply lg:text-3xl;

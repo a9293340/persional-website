@@ -29,6 +29,6 @@ const move = (i) => {
 
 <style lang="scss" scoped>
 .open {
-	@apply absolute left-4 top-4 text-3xl cursor-pointer hidden lg:block;
+	@apply absolute left-4 top-4 text-3xl cursor-pointer;
 }
 </style>

@@ -22,37 +22,46 @@ const idx = ref(props.lens - 1);
 const win_css = ref({});
 const screenOpenTrigger = ref(false);
 
-const init_mobile_css = () => {
-	const cards = document.querySelectorAll(".card");
-	for (let i = 0; i < cards.length; i++) {
-		cards[i].style.transform = `rotateY(${
-			(i * 360) / (idx.value + 1)
-		}deg) translateZ(1200px)`;
-		console.log(
-			`rotateY(${(i * 360) / (idx.value + 1)}deg) translateZ(1200px)`
-		);
-	}
-};
+// const init_mobile_css = () => {
+// 	const cards = document.querySelectorAll(".card");
+// 	for (let i = 0; i < cards.length; i++) {
+// 		cards[i].style.transform = `rotateY(${
+// 			(i * 360) / (idx.value + 1)
+// 		}deg) translateZ(1200px)`;
+// 		console.log(
+// 			`rotateY(${(i * 360) / (idx.value + 1)}deg) translateZ(1200px)`
+// 		);
+// 	}
+// };
 
-const mobile_move = (type) => {
-	const dom = document.querySelector(".card-box");
-	dom.style.transform = `translateZ(-1200px) rotateY(-${
-		(360 / props.lens) * (idx.value + type)
-	}deg) `;
-	type >= 0 ? idx.value++ : idx.value--;
-	// const index = idx.value % props.lens;
-	// const cards = document.querySelectorAll('.card');
-	// for (let i = 0; i < cards.length; i++) {
-	//   if (i === index) cards[i].classList.add('card-bgc');
-	//   else cards[i].classList.remove('card-bgc');
-	// }
-};
+// const mobile_move = (type) => {
+// 	const dom = document.querySelector(".card-box");
+// 	dom.style.transform = `translateZ(-1200px) rotateY(-${
+// 		(360 / props.lens) * (idx.value + type)
+// 	}deg) `;
+// 	type >= 0 ? idx.value++ : idx.value--;
+// 	// const index = idx.value % props.lens;
+// 	// const cards = document.querySelectorAll('.card');
+// 	// for (let i = 0; i < cards.length; i++) {
+// 	//   if (i === index) cards[i].classList.add('card-bgc');
+// 	//   else cards[i].classList.remove('card-bgc');
+// 	// }
+// };
 
 const init_win_css = () => {
 	const cards = document.querySelectorAll(".card");
 	for (let i = 0; i < cards.length; i++) {
 		cards[i].style.transform = `rotateY(20deg) translateZ(-400px) translateX(${
 			props.transXStart + i * 250
+		}px) translateY(${props.transYStart - i * 40}px)`;
+		win_css.value[`index${i}`] = cards[i].style.transform;
+	}
+};
+const init_mobile_css = () => {
+	const cards = document.querySelectorAll(".card");
+	for (let i = 0; i < cards.length; i++) {
+		cards[i].style.transform = `rotateY(20deg) translateZ(-400px) translateX(${
+			props.transXStart + 470 + i * 80
 		}px) translateY(${props.transYStart - i * 40}px)`;
 		win_css.value[`index${i}`] = cards[i].style.transform;
 	}
@@ -80,15 +89,10 @@ const move = (i, trigger) => {
 };
 
 onMounted(() => {
-	if (window.innerWidth <= props.rwdCheck) {
-		init_mobile_css();
-		mobile_move(1);
-	} else {
-		init_win_css();
-		setTimeout(() => {
-			move(0, true);
-		}, 500);
-	}
+	window.innerWidth <= props.rwdCheck ? init_mobile_css() : init_win_css();
+	setTimeout(() => {
+		move(0, true);
+	}, 500);
 });
 </script>
 <template>
@@ -138,7 +142,7 @@ onMounted(() => {
 		transform-style: preserve-3d;
 		transform: rotateY(0) translateZ(-700px) translateX(25%);
 		.card {
-			@apply lg:p-8 lg:pb-2 bg-slate-200 bg-opacity-80 p-2 lg:bg-opacity-40 backdrop-blur-sm duration-700 absolute left-0 right-0 top-0 bottom-0 w-full h-full flex justify-center items-center;
+			@apply lg:p-8 lg:pb-2 bg-slate-200 bg-opacity-80 p-4 pt-7 lg:pt-0 lg:bg-opacity-40 backdrop-blur-sm duration-700 absolute left-0 right-0 top-0 bottom-0 w-full h-full flex justify-center items-center;
 		}
 		.card-move {
 			@apply bg-opacity-80;
@@ -152,8 +156,8 @@ onMounted(() => {
 }
 
 @media (max-width: 1024px) {
-	.card-box {
-		transform: rotateY(0) translateZ(-1200px) translateX(0px);
-	}
+	// .card-box {
+	// 	transform: rotateY(0) translateZ(-1200px) translateX(0px);
+	// }
 }
 </style>
