@@ -21,6 +21,8 @@ const props = defineProps({
 const idx = ref(props.lens - 1);
 const win_css = ref({});
 const screenOpenTrigger = ref(false);
+const mobileShowTrigger = ref(false);
+const pickItem = ref(0);
 
 // const init_mobile_css = () => {
 // 	const cards = document.querySelectorAll(".card");
@@ -69,6 +71,7 @@ const init_mobile_css = () => {
 
 const move = (i, trigger) => {
 	screenOpenTrigger.value = trigger;
+	pickItem.value = i;
 	const cards = document.querySelectorAll(".card");
 
 	for (let x = 0; x < cards.length; x++) {
@@ -78,10 +81,18 @@ const move = (i, trigger) => {
 				card.style.transform = "";
 				card.classList.add("card-move");
 				card.classList.add("card-bgc");
+				setTimeout(() => {
+					mobileShowTrigger.value = true;
+					card.classList.add("card-display-none");
+				}, 700);
 			} else {
-				card.style.transform = win_css.value[`index${x}`];
-				card.classList.remove("card-move");
-				card.classList.remove("card-bgc");
+				mobileShowTrigger.value = false;
+				card.classList.remove("card-display-none");
+				setTimeout(() => {
+					card.style.transform = win_css.value[`index${x}`];
+					card.classList.remove("card-move");
+					card.classList.remove("card-bgc");
+				}, 100);
 			}
 			break;
 		}
@@ -114,8 +125,20 @@ onMounted(() => {
 				</slot>
 			</div>
 		</div>
-		<div class="test-box">
-			<slot :name="`content${props.lens - 1}`">
+		<div
+			:class="[
+				'mobile-show-box',
+				{
+					'mobile-show': mobileShowTrigger,
+				},
+			]"
+		>
+			<Open
+				v-model:screenOpenTrigger="screenOpenTrigger"
+				:idx="pickItem"
+				@move="move"
+			/>
+			<slot :name="`content${pickItem}`">
 				<div class="flex flex-col">
 					<p>* Please add your component to the corresponding carousel page.</p>
 					<p>* Use template , and add v-slot:content${index}.</p>
@@ -129,8 +152,11 @@ onMounted(() => {
 .carousel-portfolio {
 	@apply w-11/12 h-3/4 fixed left-1/2 -translate-x-1/2 mt-28 flex justify-center;
 	perspective: 1000px;
-	.test-box {
-		@apply absolute w-full lg:hidden h-full duration-500 bg-slate-400 bg-opacity-100;
+	.mobile-show-box {
+		@apply p-4 pt-7 absolute w-full lg:hidden h-full duration-500 bg-slate-400 bg-opacity-80 hidden backdrop-blur-sm flex justify-center items-center;
+	}
+	.mobile-show {
+		@apply block;
 	}
 	.card-box {
 		@apply absolute w-full lg:w-full h-full duration-500;
@@ -146,6 +172,9 @@ onMounted(() => {
 		}
 		.card-bgc {
 			@apply bg-slate-400;
+		}
+		.card-display-none {
+			@apply hidden;
 		}
 	}
 }
