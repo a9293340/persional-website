@@ -61,8 +61,8 @@ const init_mobile_css = () => {
 	const cards = document.querySelectorAll(".card");
 	for (let i = 0; i < cards.length; i++) {
 		cards[i].style.transform = `rotateY(20deg) translateZ(-400px) translateX(${
-			props.transXStart + 470 + i * 80
-		}px) translateY(${props.transYStart - i * 40}px)`;
+			props.transXStart + 470 + i * 100
+		}px) translateY(${props.transYStart - i * 50}px)`;
 		win_css.value[`index${i}`] = cards[i].style.transform;
 	}
 };
@@ -97,11 +97,6 @@ onMounted(() => {
 </script>
 <template>
 	<div class="carousel-portfolio">
-		<div class="left-arrow" @click="mobile_move(-1)">
-			<el-icon :size="50" color="black">
-				<i-icon-park:left />
-			</el-icon>
-		</div>
 		<div class="card-box">
 			<div class="card" v-for="(item, i) in props.lens" :key="i">
 				<Open
@@ -119,10 +114,13 @@ onMounted(() => {
 				</slot>
 			</div>
 		</div>
-		<div class="right-arrow" @click="mobile_move(1)">
-			<el-icon :size="50" color="black">
-				<i-icon-park:right />
-			</el-icon>
+		<div class="test-box">
+			<slot :name="`content${props.lens - 1}`">
+				<div class="flex flex-col">
+					<p>* Please add your component to the corresponding carousel page.</p>
+					<p>* Use template , and add v-slot:content${index}.</p>
+				</div>
+			</slot>
 		</div>
 	</div>
 </template>
@@ -131,11 +129,8 @@ onMounted(() => {
 .carousel-portfolio {
 	@apply w-11/12 h-3/4 fixed left-1/2 -translate-x-1/2 mt-28 flex justify-center;
 	perspective: 1000px;
-	.left-arrow {
-		@apply absolute lg:hidden top-1/2 -left-3 z-80000;
-	}
-	.right-arrow {
-		@apply absolute lg:hidden top-1/2 -right-3 z-80000;
+	.test-box {
+		@apply absolute w-full lg:hidden h-full duration-500 bg-slate-400 bg-opacity-100;
 	}
 	.card-box {
 		@apply absolute w-full lg:w-full h-full duration-500;
