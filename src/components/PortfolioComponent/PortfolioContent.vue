@@ -55,7 +55,7 @@ const linkTo = () => {
 		<div :class="['title', i18nFontFamily, `title-${i18nFontFamily}`]">
 			{{ props.title }}
 		</div>
-		<div class="h-2/5" v-if="props.images.length">
+		<!-- <div class="h-2/5" v-if="props.images.length">
 			<el-carousel width="100%" height="auto" :interval="5000">
 				<el-carousel-item
 					v-for="item in props.images"
@@ -65,7 +65,7 @@ const linkTo = () => {
 					<img :src="item" alt="" />
 				</el-carousel-item>
 			</el-carousel>
-		</div>
+		</div> -->
 		<div :class="['content-zone']">
 			<div class="content">
 				<div :class="['slogan', i18nFontFamily]">
