@@ -56,7 +56,7 @@ const props = defineProps({
 .list {
 	@apply flex flex-row items-center mb-4 w-full;
 	p {
-		@apply lg:-mr-0 lg:mr-3 text-blue-400 text-xl lg:text-3xl;
+		@apply lg:mr-3 text-blue-400 text-xl lg:text-3xl;
 	}
 	p.content {
 		@apply text-blue-600;

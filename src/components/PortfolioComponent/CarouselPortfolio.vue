@@ -69,8 +69,13 @@ const init_mobile_css = () => {
 	}
 };
 
-const move = (i, trigger) => {
-	screenOpenTrigger.value = trigger;
+const move_mobile = (i) => {
+	if (window.innerWidth > props.rwdCheck) return;
+	screenOpenTrigger.value = !screenOpenTrigger.value;
+	doCardMove(i);
+};
+
+const doCardMove = (i) => {
 	pickItem.value = i;
 	const cards = document.querySelectorAll(".card");
 
@@ -99,17 +104,28 @@ const move = (i, trigger) => {
 	}
 };
 
+const move = (i, trigger) => {
+	if (window.innerWidth <= props.rwdCheck && !screenOpenTrigger.value) return;
+	screenOpenTrigger.value = trigger;
+	doCardMove(i);
+};
+
 onMounted(() => {
 	window.innerWidth <= props.rwdCheck ? init_mobile_css() : init_win_css();
 	setTimeout(() => {
-		move(0, true);
+		window.innerWidth <= props.rwdCheck ? move_mobile(0) : move(0, true);
 	}, 500);
 });
 </script>
 <template>
 	<div class="carousel-portfolio">
 		<div class="card-box">
-			<div class="card" v-for="(item, i) in props.lens" :key="i">
+			<div
+				class="card"
+				v-for="(item, i) in props.lens"
+				:key="i"
+				@click="move_mobile(i)"
+			>
 				<Open
 					v-model:screenOpenTrigger="screenOpenTrigger"
 					:idx="i"
@@ -153,10 +169,10 @@ onMounted(() => {
 	@apply w-11/12 h-3/4 fixed left-1/2 -translate-x-1/2 mt-28 flex justify-center;
 	perspective: 1000px;
 	.mobile-show-box {
-		@apply p-4 pt-7 absolute w-full lg:hidden h-full duration-500 bg-slate-400 bg-opacity-80 hidden backdrop-blur-sm flex justify-center items-center;
+		@apply p-4 pt-7 absolute w-full lg:hidden h-full duration-500 bg-slate-400 bg-opacity-80 hidden backdrop-blur-sm justify-center items-center;
 	}
 	.mobile-show {
-		@apply block;
+		@apply flex;
 	}
 	.card-box {
 		@apply absolute w-full lg:w-full h-full duration-500;
