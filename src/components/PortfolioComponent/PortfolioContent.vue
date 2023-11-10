@@ -261,10 +261,10 @@ const linkTo = () => {
 			@apply flex flex-col w-full mb-4;
 			min-height: 30px;
 			.slogan {
-				@apply text-lg text-sky-900 mb-4;
+				@apply text-sm text-sky-900 mb-4;
 			}
 			.slogan-content {
-				@apply text-lg mb-3 w-full flex flex-row;
+				@apply text-xs mb-3 w-full flex flex-row;
 			}
 		}
 	}
