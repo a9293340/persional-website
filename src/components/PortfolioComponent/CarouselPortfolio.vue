@@ -63,8 +63,10 @@ const init_mobile_css = () => {
 	const cards = document.querySelectorAll(".card");
 	for (let i = 0; i < cards.length; i++) {
 		cards[i].style.transform = `rotateY(20deg) translateZ(-400px) translateX(${
-			props.transXStart + 470 + i * 100
-		}px) translateY(${props.transYStart - i * 50}px)`;
+			props.transXStart + 370 + i * 150
+		}px) translateY(${
+			props.transYStart + (i % 2 === 0 ? 60 * i : -60 * i) - 100
+		}px)`;
 		win_css.value[`index${i}`] = cards[i].style.transform;
 	}
 };
