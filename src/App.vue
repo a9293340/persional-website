@@ -18,8 +18,7 @@
 html,
 body {
 	height: 100%;
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
+	overflow: hidden;
 }
 body {
 	position: relative;

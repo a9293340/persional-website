@@ -264,6 +264,7 @@ const linkTo = () => {
 	}
 	.content-zone {
 		@apply w-full overflow-y-scroll overflow-x-hidden;
+		-webkit-overflow-scrolling: touch;
 		.content {
 			@apply flex flex-col w-full mb-4;
 			.slogan {
