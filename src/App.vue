@@ -10,9 +10,19 @@
 </template>
 
 <style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 html,
 body {
-	@apply h-screen w-screen m-0 p-0;
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+body {
+	position: relative;
 }
 #app {
 	@apply h-full w-full;
