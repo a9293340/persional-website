@@ -208,7 +208,7 @@ onMounted(async () => {
 		.content {
 			@apply w-11/12 h-full p-8 pl-12;
 			img {
-				@apply lg:w-60 w-40 mb-8 ml-24 lg:ml-20;
+				@apply lg:w-40 w-40 mb-8 ml-24 lg:ml-20;
 			}
 		}
 	}
