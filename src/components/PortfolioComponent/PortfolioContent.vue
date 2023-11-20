@@ -166,13 +166,9 @@ const linkTo = () => {
 			</div>
 		</div>
 		<div class="portfolio-detail-box">
-			<div v-if="props.images.length">
-				<el-carousel width="100%" height="450px" :interval="5000">
-					<el-carousel-item
-						v-for="item in props.images"
-						:key="item"
-						style="height: 500px"
-					>
+			<div class="h-3/5 w-full" v-if="props.images.length">
+				<el-carousel :interval="5000">
+					<el-carousel-item v-for="item in props.images" :key="item">
 						<img :src="item" alt="" />
 					</el-carousel-item>
 				</el-carousel>
@@ -198,6 +194,13 @@ const linkTo = () => {
 		</div>
 	</div>
 </template>
+
+<style lang="scss">
+.el-carousel__container {
+	/*height: 456px;*/
+	height: 500px !important;
+}
+</style>
 
 <style lang="scss" scoped>
 .mobile-image {
@@ -233,7 +236,7 @@ const linkTo = () => {
 	.portfolio-detail-box {
 		@apply w-7/12 h-1/2  lg:h-full pl-3;
 		.detail-zone {
-			@apply w-full h-2/5 flex flex-row justify-between mt-16 overflow-auto;
+			@apply w-full h-2/5 flex flex-row justify-between mt-16 overflow-auto scrollbar-thin scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl scrollbar-thumb-blue-700 scrollbar-track-slate-200;
 			.content {
 				@apply flex flex-col w-[calc(50%-15px)];
 				.slogan {
